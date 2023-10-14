@@ -4,14 +4,23 @@ function getComputerChoice() {
   return choices[randNum];
 }
 
-//func with 2 params , playerSelection and Comp selection
-//get playerInput
-// input should be lowercase
-//get pc input
-//return message
-
 function playRound(playerSelection, computerSelection) {
-  return playerSelection.toLowerCase();
+  playerSelection = playerSelection.toLowerCase();
+  let result = "";
+
+  if (playerSelection === "rock" && computerSelection === "paper") {
+    result = "You Lose! Paper beats Rock";
+  } else if (playerSelection === "paper" && computerSelection === "scissors") {
+    result = "You Lose! Scissors beat Paper";
+  } else if (playerSelection === "scissors" && computerSelection === "rock") {
+    result = "You Lose! Rock beats Scissors";
+  } else if (playerSelection === computerSelection) {
+    result = "Draw";
+  } else {
+    result = `You Win! ${playerSelection} beats ${computerSelection}`;
+  }
+
+  return result;
 }
 
 const playerSelection = "ROck";
