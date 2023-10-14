@@ -11,9 +11,11 @@ function playRound(playerSelection, computerSelection) {
   let result = "";
 
   if (
-    playerSelection != "rock" ||
-    playerSelection != "scissors" ||
-    playerSelection != "paper"
+    !(
+      playerSelection === "rock" ||
+      playerSelection === "paper" ||
+      playerSelection === "scissors"
+    )
   ) {
     result = "INVALID INPUT";
   } else if (playerSelection === "rock" && computerSelection === "paper") {
@@ -44,6 +46,14 @@ function game() {
 
   console.log(`Your Score: ${playerScore}`);
   console.log(`Computer Score: ${computerScore}`);
+
+  if (playerScore > computerScore) {
+    console.log("You win");
+  } else if (computerScore > playerScore) {
+    console.log("you lose");
+  } else {
+    console.log("its a tie");
+  }
 }
 
 game();
