@@ -10,7 +10,13 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
   let result = "";
 
-  if (playerSelection === "rock" && computerSelection === "paper") {
+  if (
+    playerSelection != "rock" ||
+    playerSelection != "scissors" ||
+    playerSelection != "paper"
+  ) {
+    result = "INVALID INPUT";
+  } else if (playerSelection === "rock" && computerSelection === "paper") {
     computerScore++;
     result = "You Lose! Paper beats Rock";
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
