@@ -5,12 +5,16 @@ const rockBtn = document.createElement("button");
 const paperBtn = document.createElement("button");
 const scissorsBtn = document.createElement("button");
 
-rockBtn.innerText = "Rock";
+rockBtn.innerText = "rock";
 paperBtn.innerText = "Paper";
 scissorsBtn.innerText = "Scissors";
 container.appendChild(rockBtn);
 container.appendChild(paperBtn);
 container.appendChild(scissorsBtn);
+
+rockBtn.addEventListener("click", function (e) {
+  return playRound(e.target.innerText);
+});
 
 function getComputerChoice() {
   let choices = ["rock", "paper", "scissors"];
@@ -19,6 +23,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+  computerSelection = getComputerChoice();
   let result = "";
 
   if (
@@ -45,7 +50,7 @@ function playRound(playerSelection, computerSelection) {
     result = `You Win! ${playerSelection} beats ${computerSelection}`;
   }
 
-  return result;
+  console.log(result);
 }
 
 // function game() {
@@ -66,5 +71,3 @@ function playRound(playerSelection, computerSelection) {
 //     console.log("its a tie");
 //   }
 // }
-
-game();
