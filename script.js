@@ -1,6 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
-
+let rounds = 0;
 const container = document.querySelector("main");
 const rockBtn = document.createElement("button");
 const paperBtn = document.createElement("button");
@@ -61,29 +61,36 @@ function playRound(playerSelection, computerSelection) {
     result = `You Win! ${playerSelection} beats ${computerSelection}`;
   }
 
+  rounds++;
   div.innerHTML = `
   <div>
-  <p>${result}</p>
+  <p>Round ${rounds}: ${result}</p>
   <p>playerScore: ${playerScore}</p>
   <p>computerScore: ${computerScore}</p>
   </div>`;
+  displayFinalResult();
 }
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("what do you choose").toLowerCase();
-    let computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
-  }
-
-  console.log(`Your Score: ${playerScore}`);
-  console.log(`Computer Score: ${computerScore}`);
-
-  if (playerScore > computerScore) {
-    console.log("You win");
-  } else if (computerScore > playerScore) {
-    console.log("you lose");
-  } else {
-    console.log("its a tie");
+function displayFinalResult() {
+  if (rounds === 5) {
+    if (playerScore > computerScore) {
+      div.innerHTML += `
+        <div>
+          <h3>YOU WIN</h3>
+        </div>
+      `;
+    } else if (computerScore > playerScore) {
+      div.innerHTML += `
+        <div>
+          <h3>YOU LOSE</h3>
+        </div>
+      `;
+    } else {
+      div.innerHTML += `
+        <div>
+          <h3>TIE</h3>
+        </div>
+      `;
+    }
   }
 }
