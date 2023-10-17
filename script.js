@@ -4,6 +4,7 @@ const container = document.querySelector("main");
 const rockBtn = document.createElement("button");
 const paperBtn = document.createElement("button");
 const scissorsBtn = document.createElement("button");
+const div = document.createElement("div");
 
 rockBtn.innerText = "rock";
 paperBtn.innerText = "paper";
@@ -11,6 +12,7 @@ scissorsBtn.innerText = "scissors";
 container.appendChild(rockBtn);
 container.appendChild(paperBtn);
 container.appendChild(scissorsBtn);
+container.appendChild(div);
 
 rockBtn.addEventListener("click", function (e) {
   return playRound(e.target.innerText);
@@ -58,7 +60,7 @@ function playRound(playerSelection, computerSelection) {
     result = `You Win! ${playerSelection} beats ${computerSelection}`;
   }
 
-  console.log(result);
+  div.innerText = result;
 }
 
 // function game() {
