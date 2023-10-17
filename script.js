@@ -1,5 +1,16 @@
 let playerScore = 0;
 let computerScore = 0;
+const container = document.querySelector("main");
+const rockBtn = document.createElement("button");
+const paperBtn = document.createElement("button");
+const scissorsBtn = document.createElement("button");
+
+rockBtn.innerText = "Rock";
+paperBtn.innerText = "Paper";
+scissorsBtn.innerText = "Scissors";
+container.appendChild(rockBtn);
+container.appendChild(paperBtn);
+container.appendChild(scissorsBtn);
 
 function getComputerChoice() {
   let choices = ["rock", "paper", "scissors"];
@@ -37,23 +48,23 @@ function playRound(playerSelection, computerSelection) {
   return result;
 }
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("what do you choose").toLowerCase();
-    let computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
-  }
+// function game() {
+//   for (let i = 0; i < 5; i++) {
+//     let playerSelection = prompt("what do you choose").toLowerCase();
+//     let computerSelection = getComputerChoice();
+//     console.log(playRound(playerSelection, computerSelection));
+//   }
 
-  console.log(`Your Score: ${playerScore}`);
-  console.log(`Computer Score: ${computerScore}`);
+//   console.log(`Your Score: ${playerScore}`);
+//   console.log(`Computer Score: ${computerScore}`);
 
-  if (playerScore > computerScore) {
-    console.log("You win");
-  } else if (computerScore > playerScore) {
-    console.log("you lose");
-  } else {
-    console.log("its a tie");
-  }
-}
+//   if (playerScore > computerScore) {
+//     console.log("You win");
+//   } else if (computerScore > playerScore) {
+//     console.log("you lose");
+//   } else {
+//     console.log("its a tie");
+//   }
+// }
 
 game();
