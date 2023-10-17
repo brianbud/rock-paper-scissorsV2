@@ -6,13 +6,21 @@ const paperBtn = document.createElement("button");
 const scissorsBtn = document.createElement("button");
 
 rockBtn.innerText = "rock";
-paperBtn.innerText = "Paper";
-scissorsBtn.innerText = "Scissors";
+paperBtn.innerText = "paper";
+scissorsBtn.innerText = "scissors";
 container.appendChild(rockBtn);
 container.appendChild(paperBtn);
 container.appendChild(scissorsBtn);
 
 rockBtn.addEventListener("click", function (e) {
+  return playRound(e.target.innerText);
+});
+
+paperBtn.addEventListener("click", function (e) {
+  return playRound(e.target.innerText);
+});
+
+scissorsBtn.addEventListener("click", function (e) {
   return playRound(e.target.innerText);
 });
 
